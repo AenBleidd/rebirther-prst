@@ -12,10 +12,9 @@ VPATH     = ..:../../framework:../../framework/arithmetic
 SDKPATH=`xcodebuild -version -sdk macosx Path`
 
 # See README.md for how to get macOS SDK
-LFLAGS    = -syslibroot,${SDKPATH},-arch,x86_64 # -isysroot MacOSX10.7.sdk/ -mmacosx-version-min=10.7
+LFLAGS    = -syslibroot,${SDKPATH},-arch,x86_64 -lm -lpthread -lstdc++ -L$(VCPKG_DIR)/lib -lgmp
 
 DUMMY2    =
-LIBS2     = -lm -lpthread -lstdc++ -L$(VCPKG_DIR)/lib -lgmp
 
 #CC        = /usr/local/bin/gcc-12 -mmacosx-version-min=10.9
 #CC        = /usr/local/bin/gcc-12
@@ -33,7 +32,7 @@ CXXFLAGS += -Wno-sign-compare
 all: $(EXE)
 
 $(EXE): $(COMPOBJS)
-	$(CXX) $(LFLAGS) -o $@ $(COMPOBJS) $(LIB_GWNUM) $(LIBS2)
+	$(CXX) $(LFLAGS) -o $@ $(COMPOBJS) $(LIB_GWNUM)
 
 clean:
 	rm -f $(EXE) $(COMPOBJS)
