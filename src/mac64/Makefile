@@ -12,7 +12,7 @@ VPATH     = ..:../../framework:../../framework/arithmetic
 SDKPATH=`xcodebuild -version -sdk macosx Path`
 
 # See README.md for how to get macOS SDK
-LFLAGS    = -syslibroot,${SDKPATH},-arch,x86_64 -lm -lpthread -lstdc++ -L$(VCPKG_DIR)/lib -lgmp
+LFLAGS    = -Wl,-syslibroot,${SDKPATH},-arch,x86_64 -lm -lpthread -lstdc++ -L$(VCPKG_DIR)/lib -lgmp
 
 DUMMY2    =
 
