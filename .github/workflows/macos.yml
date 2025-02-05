@@ -17,6 +17,7 @@ jobs:
               with:
                 xcode-version: '15.4.0'
             - run: |
+                brew install autoconf automake autoconf-archive
                 git clone https://github.com/microsoft/vcpkg.git
                 ./vcpkg/bootstrap-vcpkg.sh
                 ./vcpkg/vcpkg install boinc:x64-osx gmp:x64-osx
