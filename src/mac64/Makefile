@@ -9,7 +9,7 @@ COMPOBJS        = $(COMPOBJS_COMMON) prst.o
 # Source directories
 
 VPATH     = ..:../../framework:../../framework/arithmetic
-SDKPATH=`xcodebuild -version -sdk macosx Path`
+SDKPATH=/Applications/Xcode_15.4.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk
 
 # See README.md for how to get macOS SDK
 LFLAGS    = -syslibroot,${SDKPATH},-arch,x86_64 # -isysroot MacOSX10.7.sdk/ -mmacosx-version-min=10.7

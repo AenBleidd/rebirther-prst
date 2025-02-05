@@ -17,8 +17,6 @@ jobs:
               with:
                 xcode-version: '15.4.0'
             - run: |
-                xcodebuild -version -sdk macosx Path
-            - run: |
                 brew install autoconf-archive autoconf automake bison cmake gettext gfortran gperf gtk-doc libtool meson mono nasm ninja pkg-config powershell python-setuptools texinfo yasm
                 git clone https://github.com/microsoft/vcpkg.git
                 ./vcpkg/bootstrap-vcpkg.sh
