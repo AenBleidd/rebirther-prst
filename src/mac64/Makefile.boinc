@@ -1,8 +1,8 @@
 EXE_BOINC = prst_boinc
 
-BOINC_DIR = ../../vcpkg/installed/x64-osx
-BOINC_INC = -I$(BOINC_DIR)/include/boinc
-BOINC_LIB = -L$(BOINC_DIR)/lib -lboincapi -lboinc
+VCPKG_DIR = ../../vcpkg/installed/x64-osx
+BOINC_INC = -I$(VCPKG_DIR)/include/boinc
+BOINC_LIB = -L$(VCPKG_DIR)/lib -lboincapi -lboinc
 
 all_boinc: $(EXE_BOINC)
 .PHONY: all_boinc
