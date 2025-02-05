@@ -22,8 +22,8 @@ LIBS2     = -lm -lpthread -lstdc++ /usr/local/lib/libgmp.a  # link against .a fi
 SDKPATH=`xcodebuild -version -sdk macosx Path`
 CC = gcc -mmacosx-version-min=10.13 -isysroot ${SDKPATH} #-isysroot /Users/daohe/CLionProjects/prst/src/mac64/MacOSX10.13.sdk
 CXX = g++ -mmacosx-version-min=10.13 -isysroot ${SDKPATH} #-isysroot /Users/daohe/CLionProjects/prst/src/mac64/MacOSX10.13.sdk
-CFLAGS    = -I/usr/local/include/ -I.. -I../../framework/gwnum                                                -DGMP -DX86_64 -O2 -std=c99     -Wall -Wextra
-CXXFLAGS  = -I/usr/local/include/ -I.. -I../../framework -I../../framework/arithmetic -I../../framework/gwnum -DGMP -DX86_64 -O2 -std=gnu++17 -Wall -Wextra
+CFLAGS    = -I/usr/local/include/ -I.. -I../../framework/gwnum -I/opt/homebrew/include -DGMP -DX86_64 -O2 -std=c99     -Wall -Wextra
+CXXFLAGS  = -I/usr/local/include/ -I.. -I../../framework -I../../framework/arithmetic -I../../framework/gwnum -I/opt/homebrew/include -DGMP -DX86_64 -O2 -std=gnu++17 -Wall -Wextra
 
 # the code is too noisy for all warnings
 CXXFLAGS += -Wno-sign-compare
