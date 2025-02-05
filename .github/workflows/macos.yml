@@ -16,7 +16,7 @@ jobs:
             - uses: maxim-lobanov/setup-xcode@v1
               with:
                 xcode-version: '15.4.0'
-            - run:
+            - run: |
                 # brew install gmp
                 git clone https://github.com/microsoft/vcpkg.git
                 cd vcpkg
