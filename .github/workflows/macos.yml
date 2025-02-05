@@ -22,4 +22,4 @@ jobs:
                 ./vcpkg/bootstrap-vcpkg.sh
                 ./vcpkg/vcpkg install boinc:x64-osx gmp:x64-osx
                 cd ./src/mac64
-                `xcrun -find make`/make -f Makefile.boinc
+                `xcrun -find make` -f Makefile.boinc
