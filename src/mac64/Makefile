@@ -14,7 +14,7 @@ VPATH     = ..:../../framework:../../framework/arithmetic
 LFLAGS    = -syslibroot,${SDKPATH} # -isysroot MacOSX10.7.sdk/ -mmacosx-version-min=10.7
 
 DUMMY2    =
-LIBS2     = -lm -lpthread -lstdc++ /usr/local/lib/libgmp.a  # link against .a file directly to avoid using .dylib
+LIBS2     = -lm -lpthread -lstdc++ /opt/homebrew/lib/libgmp.a  # link against .a file directly to avoid using .dylib
 
 #CC        = /usr/local/bin/gcc-12 -mmacosx-version-min=10.9
 #CC        = /usr/local/bin/gcc-12

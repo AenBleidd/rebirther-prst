@@ -17,8 +17,6 @@ jobs:
               with:
                 xcode-version: '15.4.0'
             - run: |
-                find /opt/homebrew/ -name "libgmp.a"
-            - run: |
                 git clone https://github.com/microsoft/vcpkg.git
                 ./vcpkg/bootstrap-vcpkg.sh
                 ./vcpkg/vcpkg install boinc:x64-osx
