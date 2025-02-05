@@ -18,8 +18,8 @@ jobs:
                 xcode-version: '15.4.0'
             - run: |
                 export SDKPATH="`xcodebuild -version -sdk macosx Path`"
-                export CC="`xcrun -find gcc`"
-                export CXX="`xcrun -find g++`"
+                # export CC="`xcrun -find gcc`"
+                # export CXX="`xcrun -find g++`"
                 export CFLAGS="-arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH}"
                 export CXXFLAGS="-arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH}"
                 export LFLAGS="-Wl,-syslibroot,${SDKPATH},-arch,x86_64"
