@@ -11,7 +11,7 @@ COMPOBJS        = $(COMPOBJS_COMMON) prst.o
 VPATH     = ..:../../framework:../../framework/arithmetic
 
 # See README.md for how to get macOS SDK
-LFLAGS    = # -isysroot MacOSX10.7.sdk/ -mmacosx-version-min=10.7
+LFLAGS    = -syslibroot,${SDKPATH} # -isysroot MacOSX10.7.sdk/ -mmacosx-version-min=10.7
 
 DUMMY2    =
 LIBS2     = -lm -lpthread -lstdc++ /usr/local/lib/libgmp.a  # link against .a file directly to avoid using .dylib
@@ -19,8 +19,9 @@ LIBS2     = -lm -lpthread -lstdc++ /usr/local/lib/libgmp.a  # link against .a fi
 #CC        = /usr/local/bin/gcc-12 -mmacosx-version-min=10.9
 #CC        = /usr/local/bin/gcc-12
 #CXX       = /usr/local/bin/g++-12
-CC = gcc -mmacosx-version-min=10.13 -isysroot /Users/daohe/CLionProjects/prst/src/mac64/MacOSX10.13.sdk
-CXX = g++ -mmacosx-version-min=10.13 -isysroot /Users/daohe/CLionProjects/prst/src/mac64/MacOSX10.13.sdk
+SDKPATH=`xcodebuild -version -sdk macosx Path`
+CC = gcc -mmacosx-version-min=10.13 -isysroot ${SDKPATH} #-isysroot /Users/daohe/CLionProjects/prst/src/mac64/MacOSX10.13.sdk
+CXX = g++ -mmacosx-version-min=10.13 -isysroot ${SDKPATH} #-isysroot /Users/daohe/CLionProjects/prst/src/mac64/MacOSX10.13.sdk
 CFLAGS    = -I/usr/local/include/ -I.. -I../../framework/gwnum                                                -DGMP -DX86_64 -O2 -std=c99     -Wall -Wextra
 CXXFLAGS  = -I/usr/local/include/ -I.. -I../../framework -I../../framework/arithmetic -I../../framework/gwnum -DGMP -DX86_64 -O2 -std=gnu++17 -Wall -Wextra
 
