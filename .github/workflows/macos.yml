@@ -17,9 +17,8 @@ jobs:
               with:
                 xcode-version: '15.4.0'
             - run: |
-                brew install gmp
                 git clone https://github.com/microsoft/vcpkg.git
                 cd vcpkg
                 ./bootstrap-vcpkg.sh
                 ./vcpkg install boinc:x64-osx
-                make -F src/mac64/Makefile.boinc
+                make -f src/mac64/Makefile.boinc
