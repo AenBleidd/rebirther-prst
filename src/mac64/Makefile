@@ -11,17 +11,11 @@ COMPOBJS        = $(COMPOBJS_COMMON) prst.o
 VPATH     = ..:../../framework:../../framework/arithmetic
 
 SDKPATH=`xcodebuild -version -sdk macosx Path`
-CC=`xcrun -find gcc`
-CXX=`xcrun -find g++`
-CFLAGS=-arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH}
-CXXFLAGS=-arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH}
-LFLAGS=-Wl,-syslibroot,${SDKPATH},-arch,x86_64
-
-# See README.md for how to get macOS SDK
-LFLAGS    = ${LFLAGS} -lm -pthread -lstdc++ -L$(VCPKG_DIR)/lib -lgmp
-
-CFLAGS    = ${CFLAGS} -I/usr/local/include/ -I.. -I../../framework/gwnum -I$(VCPKG_DIR)/include/ -DGMP -DX86_64 -O2 -std=c99 -Wall -Wextra
-CXXFLAGS  = ${CXXFLAGS} -I/usr/local/include/ -I.. -I../../framework -I../../framework/arithmetic -I../../framework/gwnum -I$(VCPKG_DIR)/include/ -DGMP -DX86_64 -O2 -std=gnu++17 -Wall -Wextra -Wno-sign-compare
+CC        =`xcrun -find gcc`
+CXX       =`xcrun -find g++`
+CFLAGS    = -arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH} -I/usr/local/include/ -I.. -I../../framework/gwnum -I$(VCPKG_DIR)/include/ -DGMP -DX86_64 -O2 -std=c99 -Wall -Wextra
+CXXFLAGS  = -arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH} -I/usr/local/include/ -I.. -I../../framework -I../../framework/arithmetic -I../../framework/gwnum -I$(VCPKG_DIR)/include/ -DGMP -DX86_64 -O2 -std=gnu++17 -Wall -Wextra -Wno-sign-compare
+LFLAGS    = -Wl,-syslibroot,${SDKPATH},-arch,x86_64 -lm -pthread -lstdc++ -L$(VCPKG_DIR)/lib -lgmp
 
 #########################################################################
 
