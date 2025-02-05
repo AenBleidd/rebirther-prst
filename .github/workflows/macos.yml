@@ -17,12 +17,6 @@ jobs:
               with:
                 xcode-version: '15.4.0'
             - run: |
-                export SDKPATH="`xcodebuild -version -sdk macosx Path`"
-                # export CC="`xcrun -find gcc`"
-                # export CXX="`xcrun -find g++`"
-                export CFLAGS="-arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH}"
-                export CXXFLAGS="-arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH}"
-                export LFLAGS="-Wl,-syslibroot,${SDKPATH},-arch,x86_64"
                 brew install autoconf-archive autoconf automake bison cmake gettext gfortran gperf gtk-doc libtool meson mono nasm ninja pkg-config powershell python-setuptools texinfo yasm
                 git clone https://github.com/microsoft/vcpkg.git
                 ./vcpkg/bootstrap-vcpkg.sh
