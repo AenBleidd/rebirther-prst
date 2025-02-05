@@ -15,7 +15,7 @@ CC        =`xcrun -find gcc`
 CXX       =`xcrun -find g++`
 CFLAGS    = -arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH} -I/usr/local/include/ -I.. -I../../framework/gwnum -I$(VCPKG_DIR)/include/ -DGMP -DX86_64 -O2 -std=c99 -Wall -Wextra
 CXXFLAGS  = -arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH} -I/usr/local/include/ -I.. -I../../framework -I../../framework/arithmetic -I../../framework/gwnum -I$(VCPKG_DIR)/include/ -DGMP -DX86_64 -O3 -stdlib=libc++ -std=c++17 -Wall -Wextra -Wno-sign-compare
-LDFLAGS    = -Wl,-syslibroot,${SDKPATH},-arch,x86_64 -lm -pthread -lstdc++ -L$(VCPKG_DIR)/lib -lgmp
+LDFLAGS    = -Wl,-syslibroot,${SDKPATH},-arch,x86_64 -lm -pthread -lstdc++ -L$(VCPKG_DIR)/lib -lgmp -static
 
 #########################################################################
 
