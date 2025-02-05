@@ -18,7 +18,6 @@ jobs:
                 xcode-version: '15.4.0'
             - run: |
                 git clone https://github.com/microsoft/vcpkg.git
-                cd vcpkg
-                ./bootstrap-vcpkg.sh
-                ./vcpkg install boinc:x64-osx
+                ./vcpkg/bootstrap-vcpkg.sh
+                ./vcpkg/vcpkg install boinc:x64-osx
                 make -f src/mac64/Makefile.boinc
