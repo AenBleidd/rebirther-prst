@@ -1,6 +1,6 @@
 EXE_BOINC = prst_boinc
 
-BOINC_DIR = ../../../vcpkg/installed/x64-osx
+BOINC_DIR = ../../vcpkg/installed/x64-osx
 BOINC_INC = -I$(BOINC_DIR)/include
 BOINC_LIB = -L$(BOINC_DIR)/lib -lboinc_api -lboinc
 
