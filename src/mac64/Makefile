@@ -23,7 +23,7 @@ SDKPATH=`xcodebuild -version -sdk macosx Path`
 CC = gcc -arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH} #-isysroot /Users/daohe/CLionProjects/prst/src/mac64/MacOSX10.13.sdk
 CXX = g++ -arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH} #-isysroot /Users/daohe/CLionProjects/prst/src/mac64/MacOSX10.13.sdk
 CFLAGS    = -I/usr/local/include/ -I.. -I../../framework/gwnum -I$(VCPKG_DIR)/include/ -DGMP -DX86_64 -O2 -std=c99     -Wall -Wextra
-CXXFLAGS  = -I/usr/local/include/ -I.. -I../../framework -I../../framework/arithmetic -I../../framework/gwnum -I$(VCPKG_DIR)/include/ -DGMP -DX86_64 -O2 -std=gnu++17 -Wall -Wextra
+CXXFLAGS  = -I/usr/local/include/ -I.. -I../../framework -I../../framework/arithmetic -I../../framework/gwnum -I$(VCPKG_DIR)/include/ -DGMP -DX86_64 -O2 -std=gnu++17 -Wall -Wextra -no-pie
 
 # the code is too noisy for all warnings
 CXXFLAGS += -Wno-sign-compare
