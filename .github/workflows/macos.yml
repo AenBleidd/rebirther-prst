@@ -21,7 +21,7 @@ jobs:
                 git clone https://github.com/microsoft/vcpkg.git
                 ./vcpkg/bootstrap-vcpkg.sh
                 ./vcpkg/vcpkg install boinc:x64-osx gmp:x64-osx
-                cd frameworks/gwnum
+                cd ./framework/gwnum
                 `xcrun -find make` -f makemac
                 cd ../../src/mac64
                 `xcrun -find make` -f Makefile.boinc
