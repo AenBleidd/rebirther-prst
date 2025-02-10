@@ -1,0 +1,29 @@
+name: MacOS
+on:
+    push:
+        branches:
+            - master
+    pull_request:
+        branches:
+            - master
+
+jobs:
+    build:
+        name: Build
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: maxim-lobanov/setup-xcode@v1
+              with:
+                xcode-version: '15.4.0'
+            - run: |
+                brew install autoconf-archive autoconf automake bison cmake gettext gfortran gperf gtk-doc libtool meson mono nasm ninja pkg-config powershell python-setuptools texinfo yasm
+                git clone https://github.com/microsoft/vcpkg.git
+                ./vcpkg/bootstrap-vcpkg.sh
+                export CFLAGS="-mmacosx-version-min=10.13"
+                export CXXFLAGS="-mmacosx-version-min=10.13"
+                ./vcpkg/vcpkg install boinc gmp --triplet x64-osx --overlay-triplets=./triplets
+                cd ./framework/gwnum
+                `xcrun -find make` -f makemac
+                cd ../../src/mac64
+                `xcrun -find make` -f Makefile.boinc
