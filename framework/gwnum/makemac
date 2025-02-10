@@ -27,7 +27,6 @@ POLYLIB = polymult.a
 all:	$(LIB) $(POLYLIB)
 
 $(LIB): $(MACOBJS)
-	cp macosx64/gwnum.a .
 	$(AR) -rs $(LIB) $(MACOBJS)
 
 $(POLYLIB): $(POLYOBJS)
