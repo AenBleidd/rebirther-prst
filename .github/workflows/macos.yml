@@ -20,6 +20,8 @@ jobs:
                 brew install autoconf-archive autoconf automake bison cmake gettext gfortran gperf gtk-doc libtool meson mono nasm ninja pkg-config powershell python-setuptools texinfo yasm
                 git clone https://github.com/microsoft/vcpkg.git
                 ./vcpkg/bootstrap-vcpkg.sh
+                export CFLAGS="-mmacosx-version-min=10.13"
+                export CXXFLAGS="-mmacosx-version-min=10.13"
                 ./vcpkg/vcpkg install boinc gmp --triplet x64-osx --overlay-triplets=./triplets
                 cd ./framework/gwnum
                 `xcrun -find make` -f makemac
