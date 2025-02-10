@@ -6,6 +6,7 @@
 #ENVP= MACOSX_DEPLOYMENT_TARGET=10.3
 
 SDKPATH=`xcodebuild -version -sdk macosx Path`
+VCPKG_DIR = ../../vcpkg/installed/x64-osx
 
 CC = `xcrun -find gcc`
 CFLAGS64 = -arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH} -I.. -I../sqlite-amalgamation-3420000 -I$(VCPKG_DIR)/include/ -O3 -std=gnu99 -DX86_64 -m64 -fno-exceptions
