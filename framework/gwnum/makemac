@@ -5,22 +5,18 @@
 # This no longer works as I get error messages that include file <atomic> cannot be found
 #ENVP= MACOSX_DEPLOYMENT_TARGET=10.3
 
-CC = gcc
-CFLAGS = -I.. -I../sqlite-amalgamation-3420000 -O2 -m32 -std=gnu99 -march=i686 -fno-exceptions
-CFLAGSD = -I.. -I../sqlite-amalgamation-3420000 -g -DGDEBUG -std=gnu99 -m32 -march=i686 -fno-exceptions
-CFLAGS64 = -I.. -I../sqlite-amalgamation-3420000 -O2 -std=gnu99 -DX86_64 -m64 -fno-exceptions
-CFLAGS64D = -I.. -I../sqlite-amalgamation-3420000 -g -DGDEBUG -std=gnu99 -DX86_64 -m64 -fno-exceptions
+SDKPATH=`xcodebuild -version -sdk macosx Path`
 
-CPP = g++
-CPPFLAGS = -I.. -I../qd -O2 -std=c++11 -m32 -march=i686 -fno-exceptions -fno-rtti -Wno-stdlibcxx-not-found
-CPPFLAGSD = -I.. -I../qd -g -DGDEBUG -std=c++11 -m32 -march=i686 -fno-exceptions -fno-rtti -Wno-stdlibcxx-not-found
-CPPFLAGS64 = -I.. -I../qd -O2 -DX86_64 -std=c++11 -m64 -fno-exceptions -fno-rtti -Wno-stdlibcxx-not-found
-CPPFLAGS64D = -I.. -I../qd -g -DGDEBUG -DX86_64 -std=c++11 -m64 -fno-exceptions -fno-rtti -Wno-stdlibcxx-not-found
+CC = `xcrun -find gcc`
+CFLAGS64 = -arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH} -I.. -I../sqlite-amalgamation-3420000 -O3 -std=gnu99 -DX86_64 -m64 -fno-exceptions
 
-AR = ar
+CPP = `xcrun -find g++`
+CPPFLAGS64 = -arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH}  -I.. -I../qd -O3 -DX86_64 -std=c++11 -m64 -fno-exceptions -fno-rtti -Wno-stdlibcxx-not-found
+
+AR = `xcrun -find ar`
 
 MACOBJS = cpuid.o gwnum.o gwtables.o gwthread.o gwini.o gwbench.o gwutil.o gwdbldbl.o giants.o radix.o ecmstag1.o
-POLYOBJS = polymult.o polymult_sse2.o polymult_avx.o polymult_fma.o polymult_avx512.o 
+POLYOBJS = polymult.o polymult_sse2.o polymult_avx.o polymult_fma.o polymult_avx512.o
 
 LIB = gwnum.a
 POLYLIB = polymult.a
