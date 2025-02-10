@@ -8,10 +8,10 @@
 SDKPATH=`xcodebuild -version -sdk macosx Path`
 
 CC = `xcrun -find gcc`
-CFLAGS64 = -arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH} -I.. -I../sqlite-amalgamation-3420000 -O3 -std=gnu99 -DX86_64 -m64 -fno-exceptions
+CFLAGS64 = -arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH} -I.. -I../sqlite-amalgamation-3420000 -I$(VCPKG_DIR)/include/ -O3 -std=gnu99 -DX86_64 -m64 -fno-exceptions
 
 CPP = `xcrun -find g++`
-CPPFLAGS64 = -arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH}  -I.. -I../qd -O3 -DX86_64 -std=c++11 -m64 -fno-exceptions -fno-rtti -Wno-stdlibcxx-not-found
+CPPFLAGS64 = -arch x86_64 -mmacosx-version-min=10.13 -isysroot ${SDKPATH}  -I.. -I../qd -I$(VCPKG_DIR)/include/ -O3 -DX86_64 -std=c++11 -m64 -fno-exceptions -fno-rtti -Wno-stdlibcxx-not-found
 
 AR = `xcrun -find ar`
 
