@@ -1,7 +1,7 @@
 # Makefile for Linux
 
 EXE       = prst
-LIB_GWNUM = ../../framework/gwnum/mac64/gwnum.a
+LIB_GWNUM = ../../framework/gwnum/gwnum.a
 
 COMPOBJS_COMMON = md5.o arithmetic.o group.o giant.o lucas.o config.o inputnum.o integer.o logging.o file.o task.o exp.o fermat.o order.o pocklington.o morrison.o proof.o testing.o support.o
 COMPOBJS        = $(COMPOBJS_COMMON) prst.o
